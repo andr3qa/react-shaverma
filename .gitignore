@@ -1,0 +1,45 @@
+# Зависимости
+/node_modules
+
+# Сборка и дистрибутив
+/dist
+/dist-ssr
+/.vite
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Локальные файлы окружения
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Временные файлы редакторов
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.sublime*
+
+# Кэш и временные файлы
+.cache
+*.log
+*.tsbuildinfo
+.eslintcache
+.prettiercache
+.stylelintcache
+
+# Тестовые файлы и покрытие
+/coverage
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
