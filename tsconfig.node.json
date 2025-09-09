@@ -6,6 +6,6 @@
     "types": ["node"],
     "noEmit": true
   },
-  "include": ["vite.config.ts", "src/vite-env.d.ts"],
+  "include": ["vite.config.ts", "src/types/vite-env.d.ts"],
   "exclude": ["node_modules", "dist"]
 }

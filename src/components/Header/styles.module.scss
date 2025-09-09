@@ -1,0 +1,64 @@
+@use './../../styles/variables' as *;
+@use 'sass:color';
+
+.header {
+  border-bottom: 1px solid $gray-line;
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: $container-width;
+  }
+
+  &__logo {
+    display: flex;
+
+    img {
+      margin-right: 15px;
+    }
+
+    h1 {
+      font-weight: 800;
+      font-size: 24px;
+      letter-spacing: 1%;
+      text-transform: uppercase;
+      color: #181818;
+    }
+
+    p {
+      color: #7b7b7b;
+    }
+  }
+}
+
+.cartBtn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  padding: 10px 20px;
+  width: 150px;
+  text-align: center;
+  color: #fff;
+  background-color: $orange;
+  transition:
+    background-color $duration ease-in-out,
+    border-color $duration ease-in-out;
+  cursor: pointer;
+
+  &__delimiter {
+    margin-right: 14px;
+    margin-left: 14px;
+    width: 1px;
+    height: 25px;
+    background-color: rgb(255, 255, 255, 0.25);
+  }
+
+  span {
+    color: #fff;
+  }
+}
