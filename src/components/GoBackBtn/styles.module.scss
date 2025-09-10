@@ -1,0 +1,49 @@
+@use './../../styles/variables' as *;
+@use 'sass:color';
+
+.goBackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #d3d3d3;
+  border-radius: 30px;
+  width: 210px;
+  height: 50px;
+  color: #d3d3d3;
+  transition: all $duration ease-in-out;
+
+  &:hover {
+    border-color: $orange;
+    color: $orange;
+
+    svg {
+      path {
+        stroke: $orange;
+      }
+    }
+  }
+
+  &:active {
+    border-color: color.adjust($orange, $lightness: -10%);
+    color: color.adjust($orange, $lightness: -10%);
+
+    svg {
+      path {
+        stroke: color.adjust($orange, $lightness: -10%);
+      }
+    }
+  }
+
+  svg {
+    width: 6px;
+
+    path {
+      stroke: #d3d3d3;
+      transition: all $duration ease-in-out;
+    }
+  }
+
+  span {
+    margin-left: 10px;
+  }
+}

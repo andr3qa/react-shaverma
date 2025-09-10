@@ -23,7 +23,10 @@ export const Product = () => {
       </div>
       <div className={s.product__bottom}>
         <div className={s.product__price}>от 395 ₽</div>
-        <Button />
+        <Button>
+          <span className={s.button__txt}>Добавить</span>
+          <span className={s.button__counts}>2</span>
+        </Button>
       </div>
     </div>
   );

@@ -1,18 +1,19 @@
 import s from './styles.module.scss';
-import logo from './../../assets/logo.png';
+import logo from './../../assets/img/logo.png';
+import { Link } from 'react-router';
 
 export const Header = () => {
   return (
     <div className={s.header}>
       <div className={s.container}>
-        <div className={s.header__logo}>
+        <Link to="/" className={s.header__logo}>
           <img width="50" height="50" src={logo} alt="Pizza logo" />
           <div>
             <h1>React Shaverma</h1>
             <p>самая вкусная шаверма во вселенной</p>
           </div>
-        </div>
-        <a href="/cart.html" className={s.cartBtn}>
+        </Link>
+        <Link to="/cart" className={s.cartBtn}>
           <span>520 ₽</span>
           <div className={s.cartBtn__delimiter}></div>
           <svg
@@ -45,7 +46,7 @@ export const Header = () => {
             />
           </svg>
           <span>3</span>
-        </a>
+        </Link>
       </div>
     </div>
   );

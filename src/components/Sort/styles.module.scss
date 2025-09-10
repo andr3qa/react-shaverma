@@ -4,6 +4,22 @@
 .sort {
   position: relative;
 
+  &__icon {
+    margin-right: 10px;
+    width: 10px;
+    height: 10px;
+    color: #f00;
+    fill: #f00;
+
+    svg {
+      fill: #f00;
+    }
+
+    path {
+      fill: #f00;
+    }
+  }
+
   &__label {
     display: flex;
     align-items: center;

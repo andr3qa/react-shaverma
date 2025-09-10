@@ -1,0 +1,111 @@
+@use './../../styles/variables' as *;
+@use 'sass:color';
+
+.cartProduct {
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 1px solid $gray-line;
+  padding-top: 30px;
+  width: 100%;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40px;
+    width: 40%;
+
+    h3 {
+      font-weight: 700;
+      font-size: 22px;
+      line-height: 27px;
+      letter-spacing: 0.01em;
+    }
+
+    p {
+      font-size: 18px;
+      color: #8d8d8d;
+    }
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 13%;
+
+    b {
+      font-size: 22px;
+    }
+  }
+
+  &__btn {
+    border: 2px solid $orange;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-weight: 800;
+    font-size: 18px;
+    text-align: center;
+    color: $orange;
+    transition: all $duration ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+      background-color: $orange;
+    }
+
+    &:active {
+      border-color: color.adjust($orange, $lightness: -10%);
+      color: #fff;
+      background-color: color.adjust($orange, $lightness: -10%);
+      transform: translateY(2px);
+    }
+
+    &_delete {
+      border-color: #f00;
+
+      span {
+        display: block;
+        color: #f00;
+        transform: rotate(45deg);
+        transition: all $duration ease-in-out;
+      }
+
+      &:hover {
+        color: #fff;
+        background-color: #f00;
+
+        span {
+          color: #fff;
+        }
+      }
+
+      &:active {
+        border-color: color.adjust(#f00, $lightness: -10%);
+        color: #fff;
+        background-color: color.adjust(#f00, $lightness: -10%);
+      }
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+
+    b {
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 0.01em;
+    }
+  }
+
+  &__img {
+    border-radius: 20px;
+    width: 80px;
+  }
+}

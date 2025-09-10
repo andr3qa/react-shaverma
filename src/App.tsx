@@ -1,13 +1,18 @@
 import { Header } from '@/components';
-import { Home } from './pages/Home';
+import { Cart, Home, NotFound } from './pages';
 import './styles/app.scss';
+import { Route, Routes } from 'react-router';
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
       <div className="content">
-        <Home />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </div>
     </div>
   );
