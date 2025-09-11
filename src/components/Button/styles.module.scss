@@ -25,48 +25,6 @@
     transform: translateY(1px);
   }
 
-  &_back {
-    border-color: #d3d3d3;
-    color: #d3d3d3;
-    background-color: transparent;
-
-    &:hover {
-      border-color: $orange;
-      color: $orange;
-      background-color: transparent;
-
-      svg {
-        path {
-          stroke: $orange;
-        }
-      }
-    }
-
-    &:active {
-      border-color: color.adjust($orange, $lightness: -10%);
-      color: color.adjust($orange, $lightness: -10%);
-
-      svg {
-        path {
-          stroke: color.adjust($orange, $lightness: -10%);
-        }
-      }
-    }
-
-    svg {
-      width: 6px;
-
-      path {
-        stroke: #d3d3d3;
-        transition: all $duration ease-in-out;
-      }
-    }
-
-    span {
-      margin-left: 10px;
-    }
-  }
-
   &_circle {
     border-color: $orange;
     border-radius: 50%;

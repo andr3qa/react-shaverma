@@ -1,0 +1,26 @@
+@use './../../styles/variables' as *;
+@use 'sass:color';
+
+.content {
+  &__title {
+    margin: 35px 0;
+  }
+
+  &__items {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 50px 0;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: $container-width;
+}

@@ -2,17 +2,12 @@
 @use 'sass:color';
 
 .product {
-  margin-bottom: 65px;
   width: 280px;
   text-align: center;
 
-  &:not(:nth-of-type(4n)) {
-    margin-right: 35px;
-  }
-
   &__image {
-    border-radius: 20px;
-    width: 260px;
+    border-radius: 30px;
+    width: 100%;
   }
 
   &__title {
@@ -49,5 +44,18 @@
     font-size: 22px;
     line-height: 27px;
     letter-spacing: 0.015em;
+  }
+
+  &__count {
+    display: block;
+    margin-left: 10px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    line-height: 21px;
+    text-align: center;
+    color: $orange;
+    background-color: #fff;
   }
 }

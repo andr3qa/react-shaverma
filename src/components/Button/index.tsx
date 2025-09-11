@@ -5,7 +5,6 @@ import { type ReactNode } from 'react';
 type BtnProps = {
   children: ReactNode;
   variant?:
-    | 'back'
     | 'circle'
     | 'delete'
     | 'cart'
@@ -20,7 +19,6 @@ export const Button: React.FC<BtnProps> = ({ children, variant }) => {
   return (
     <button
       className={clsx(s.btn, {
-        [s.btn_back]: variant === 'back',
         [s.btn_circle]: variant === 'circle',
         [s.btn_circle + ' ' + s.btn_circle_delete]: variant === 'delete',
         [s.btn_cart]: variant === 'cart',

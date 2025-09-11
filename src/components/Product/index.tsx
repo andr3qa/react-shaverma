@@ -25,7 +25,7 @@ export const Product = () => {
         <div className={s.product__price}>от 395 ₽</div>
         <Button>
           <span className={s.button__txt}>Добавить</span>
-          <span className={s.button__counts}>2</span>
+          <span className={s.product__count}>2</span>
         </Button>
       </div>
     </div>

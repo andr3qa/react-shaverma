@@ -1,12 +1,12 @@
-import { Button, CartProduct } from '@/components';
-import { Link } from 'react-router';
+import { Button, CartProduct, LinkBack } from '@/components';
+import s from './styles.module.scss';
 
 export const Cart = () => {
   return (
-    <div className="cart">
-      <div className="cart__container">
-        <div className="cart__top">
-          <h2 className="content__title">
+    <div className={s.cart}>
+      <div className={s.cart__container}>
+        <div className={s.cart__top}>
+          <h2 className={s.content__title}>
             <svg
               width="18"
               height="18"
@@ -38,7 +38,7 @@ export const Cart = () => {
             </svg>
             Корзина
           </h2>
-          <div className="cart__clear">
+          <button className={s.cart__clear}>
             <svg
               width="20"
               height="20"
@@ -76,48 +76,31 @@ export const Cart = () => {
               />
             </svg>
             <span>Очистить корзину</span>
-          </div>
+          </button>
         </div>
-        <div className="content__items">
+        <div className={s.content__items}>
           <CartProduct />
         </div>
-        <div className="cart__bottom">
-          <div className="cart__bottom-details">
+        <ul className={s.cart__bottom}>
+          <li>
             <span>
-              {' '}
-              Всего пицц: <b>3 шт.</b>{' '}
+              Всего пицц: <b>3 шт.</b>
             </span>
+          </li>
+          <li>
             <span>
-              {' '}
-              Сумма заказа: <b>900 ₽</b>{' '}
+              Сумма заказа: <b>900 ₽</b>
             </span>
-          </div>
-          <div className="cart__bottom-buttons">
-            <Link to="/">
-              <Button variant="back">
-                <svg
-                  width="8"
-                  height="14"
-                  viewBox="0 0 8 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 13L1 6.93015L6.86175 1"
-                    stroke="none"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                <span>Вернуться назад</span>
-              </Button>
-            </Link>
+          </li>
+          <li>
+            <LinkBack />
+          </li>
+          <li>
             <Button>
               <span>Оформить заказ</span>
             </Button>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </div>
   );

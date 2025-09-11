@@ -1,0 +1,95 @@
+@use './../../styles/variables' as *;
+@use 'sass:color';
+
+.cart {
+  padding: 50px;
+
+  &__container {
+    margin: 0 auto;
+    width: 70%;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .content__title {
+    display: flex;
+    align-items: center;
+    font-size: 32px;
+
+    svg {
+      position: relative;
+      top: -2px;
+      margin-right: 10px;
+      width: 30px;
+      height: 30px;
+
+      path {
+        stroke: $black;
+        stroke-width: 1.9;
+      }
+    }
+  }
+
+  &__clear {
+    display: flex;
+    align-items: center;
+    border: none;
+    font-size: 18px;
+    color: #b6b6b6;
+    background-color: transparent;
+    cursor: pointer;
+
+    span {
+      margin-left: 7px;
+    }
+
+    span,
+    svg,
+    path {
+      transition: all $duration ease-in-out;
+    }
+
+    &:hover {
+      svg {
+        path {
+          stroke: color.adjust(#b6b6b6, $lightness: -30%);
+        }
+      }
+
+      span {
+        color: color.adjust(#b6b6b6, $lightness: -30%);
+      }
+    }
+
+    &:active {
+      svg {
+        path {
+          stroke: color.adjust(#b6b6b6, $lightness: -50%);
+        }
+      }
+
+      span {
+        color: color.adjust(#b6b6b6, $lightness: -50%);
+      }
+    }
+  }
+
+  &__bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 100px;
+    gap: 20px;
+
+    li:nth-child(even) {
+      justify-self: end;
+    }
+
+    li:nth-child(odd) {
+      justify-self: start;
+    }
+  }
+}
