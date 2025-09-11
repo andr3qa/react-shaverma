@@ -1,3 +1,4 @@
+import { Button } from '@/components';
 import s from './styles.module.scss';
 
 export const CartProduct = () => {
@@ -13,16 +14,16 @@ export const CartProduct = () => {
         <p>В лаваше, XXL</p>
       </div>
       <div className={s.cartProduct__count}>
-        <button className={s.cartProduct__btn}>-</button>
+        <Button variant="circle">-</Button>
         <b>2</b>
-        <button className={s.cartProduct__btn}>+</button>
+        <Button variant="circle">+</Button>
       </div>
       <div className={s.cartProduct__price}>
         <b>770 ₽</b>
       </div>
-      <button className={`${s.cartProduct__btn} ${s.cartProduct__btn_delete}`}>
+      <Button variant="delete">
         <span>+</span>
-      </button>
+      </Button>
     </div>
   );
 };

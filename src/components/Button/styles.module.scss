@@ -1,169 +1,182 @@
 @use './../../styles/variables' as *;
 @use 'sass:color';
 
-.button {
+.btn {
   display: flex;
   align-items: center;
-  border: 1px solid transparent;
+  justify-content: center;
+  border: 2px solid transparent;
   border-radius: 30px;
   padding: 10px 20px;
-  min-width: 100px;
+  font-weight: 500;
+  font-size: 14px;
   text-align: center;
   color: #fff;
   background-color: $orange;
-  transition:
-    background-color $duration ease-in-out,
-    border-color $duration ease-in-out;
+  transition: all $duration ease-in-out;
   cursor: pointer;
-
-  &__txt {
-    color: #fff;
-  }
-
-  &__counts {
-    position: relative;
-    left: 3px;
-    top: -1px;
-    display: inline-block;
-    margin-left: 5px;
-    border-radius: 30px;
-    width: 22px;
-    height: 22px;
-    font-weight: 600;
-    font-style: normal;
-    font-size: 13px;
-    line-height: 25px;
-    color: $orange;
-    background-color: #fff;
-  }
-
-  i,
-  span,
-  path,
-  svg {
-    transition: all $duration ease-in-out;
-  }
 
   &:hover {
     background-color: color.adjust($orange, $lightness: -5%);
   }
 
   &:active {
-    background-color: color.adjust($orange, $lightness: -10%);
+    border-color: color.adjust($orange, $lightness: -15%);
     transform: translateY(1px);
   }
 
-  &--circle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-width: 2px;
-    padding: 0;
-    width: 32px;
-    height: 32px;
-    min-width: 32px;
-  }
-
-  &--black {
-    background-color: $black;
-
-    &:hover,
-    &:active {
-      background-color: color.adjust($black, $lightness: 10%);
-    }
-  }
-
-  &--outline {
-    border-color: $orange;
-    background-color: #fff;
-
-    &,
-    span {
-      color: $orange;
-    }
-
-    svg {
-      path {
-        fill: $orange;
-      }
-    }
+  &_back {
+    border-color: #d3d3d3;
+    color: #d3d3d3;
+    background-color: transparent;
 
     &:hover {
-      background-color: $orange;
-
-      &,
-      span {
-        color: #fff;
-      }
+      border-color: $orange;
+      color: $orange;
+      background-color: transparent;
 
       svg {
         path {
-          fill: #fff;
+          stroke: $orange;
         }
       }
     }
 
     &:active {
-      background-color: color.adjust($orange, $lightness: -10%);
-    }
-  }
+      border-color: color.adjust($orange, $lightness: -10%);
+      color: color.adjust($orange, $lightness: -10%);
 
-  &__delimiter {
-    margin-right: 14px;
-    margin-left: 14px;
-    width: 1px;
-    height: 25px;
-    background-color: rgb(255, 255, 255, 0.25);
-  }
-
-  &--add {
-    svg {
-      margin-right: 2px;
-    }
-
-    span {
-      font-weight: 600;
-      font-size: 16px;
-    }
-
-    &:hover {
-      i {
-        color: $orange;
-        background-color: #fff;
+      svg {
+        path {
+          stroke: color.adjust($orange, $lightness: -10%);
+        }
       }
     }
 
-    i {
-      position: relative;
-      left: 3px;
-      top: -1px;
-      display: inline-block;
-      border-radius: 30px;
-      width: 22px;
-      height: 22px;
-      font-weight: 600;
-      font-style: normal;
-      font-size: 13px;
-      line-height: 22px;
-      color: #fff;
-      background-color: $orange;
-    }
-  }
-
-  &--cart {
-    display: flex;
-    align-items: center;
-    padding: 12px 25px;
-    line-height: 23px;
-
     svg {
-      margin-right: 8px;
-      margin-bottom: 1px;
+      width: 6px;
+
+      path {
+        stroke: #d3d3d3;
+        transition: all $duration ease-in-out;
+      }
     }
 
     span {
-      font-weight: 600;
-      font-size: 16px;
+      margin-left: 10px;
+    }
+  }
+
+  &_circle {
+    border-color: $orange;
+    border-radius: 50%;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    font-weight: 800;
+    font-size: 18px;
+    color: $orange;
+    background-color: transparent;
+
+    &:hover {
+      color: #fff;
+      background-color: $orange;
+    }
+
+    &:active {
+      border-color: color.adjust($orange, $lightness: -10%);
+      color: #fff;
+      background-color: color.adjust($orange, $lightness: -10%);
+      transform: translateY(1px);
+    }
+
+    &_delete {
+      border-color: #d3d3d3;
+      background-color: transparent;
+
+      span {
+        display: block;
+        color: #d3d3d3;
+        transform: rotate(45deg);
+        transition: all $duration ease-in-out;
+      }
+
+      &:hover {
+        border-color: #e32636;
+        background-color: transparent;
+
+        span {
+          color: #e32636;
+        }
+      }
+
+      &:active {
+        border-color: color.adjust(#e32636, $lightness: -10%);
+      }
+    }
+  }
+
+  &_category {
+    color: #282828;
+    background-color: #f9f9f9;
+
+    &:hover {
+      background-color: color.adjust(#f9f9f9, $lightness: -5%);
+    }
+
+    &:active {
+      border-color: transparent;
+      background-color: color.adjust(#f9f9f9, $lightness: -10%);
+    }
+
+    &_active {
+      color: #fff;
+      background-color: #282828;
+      cursor: default;
+
+      &:hover {
+        color: #fff;
+        background-color: #282828;
+      }
+
+      &:active {
+        border-color: transparent;
+        color: #fff;
+        background-color: #282828;
+        transform: none;
+      }
+    }
+  }
+
+  &_productSelect {
+    display: inline-block;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    color: #232323;
+    background-color: transparent;
+    transition: all $duration ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgb(0, 0, 0, 0.04);
+      background: #fff;
+    }
+
+    &_active {
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgb(0, 0, 0, 0.04);
+      background: #fff;
+      cursor: default;
+
+      &:active {
+        transform: none;
+      }
     }
   }
 }

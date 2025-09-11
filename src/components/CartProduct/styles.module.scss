@@ -40,57 +40,6 @@
     }
   }
 
-  &__btn {
-    border: 2px solid $orange;
-    border-radius: 50%;
-    width: 28px;
-    height: 28px;
-    font-weight: 800;
-    font-size: 18px;
-    text-align: center;
-    color: $orange;
-    transition: all $duration ease-in-out;
-    cursor: pointer;
-
-    &:hover {
-      color: #fff;
-      background-color: $orange;
-    }
-
-    &:active {
-      border-color: color.adjust($orange, $lightness: -10%);
-      color: #fff;
-      background-color: color.adjust($orange, $lightness: -10%);
-      transform: translateY(2px);
-    }
-
-    &_delete {
-      border-color: #f00;
-
-      span {
-        display: block;
-        color: #f00;
-        transform: rotate(45deg);
-        transition: all $duration ease-in-out;
-      }
-
-      &:hover {
-        color: #fff;
-        background-color: #f00;
-
-        span {
-          color: #fff;
-        }
-      }
-
-      &:active {
-        border-color: color.adjust(#f00, $lightness: -10%);
-        color: #fff;
-        background-color: color.adjust(#f00, $lightness: -10%);
-      }
-    }
-  }
-
   &__price {
     display: flex;
     align-items: center;
