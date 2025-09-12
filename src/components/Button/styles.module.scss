@@ -7,7 +7,7 @@
   justify-content: center;
   border: 2px solid transparent;
   border-radius: 30px;
-  padding: 10px 20px;
+  padding: 10px;
   font-weight: 500;
   font-size: 14px;
   text-align: center;
@@ -75,6 +75,7 @@
   }
 
   &_category {
+    padding: 10px 20px;
     color: #282828;
     background-color: #f9f9f9;
 
@@ -110,7 +111,7 @@
     display: inline-block;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
+    padding: 10px 0;
     width: 100%;
     font-weight: 600;
     font-size: 14px;

@@ -11,13 +11,29 @@
     justify-content: space-between;
     margin: 0 auto;
     width: $container-width;
+
+    @media (width <= 700px) {
+      flex-direction: column;
+      gap: 30px;
+    }
   }
 
   &__logo {
     display: flex;
 
+    @media (width <= 700px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     img {
       margin-right: 15px;
+    }
+  }
+
+  &__logoTxt {
+    @media (width <= 700px) {
+      text-align: center;
     }
 
     h1 {

@@ -2,8 +2,12 @@
 @use 'sass:color';
 
 .categories {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  width: 530px;
-  gap: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  gap: 15px;
+
+  @media (width <= 700px) {
+    justify-content: start;
+  }
 }

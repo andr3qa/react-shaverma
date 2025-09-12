@@ -2,8 +2,11 @@
 @use 'sass:color';
 
 .product {
-  width: 280px;
   text-align: center;
+
+  @media (width <= 1000px) {
+    width: 250px;
+  }
 
   &__image {
     border-radius: 30px;
@@ -40,8 +43,9 @@
   }
 
   &__price {
+    margin-left: 10px;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 20px;
     line-height: 27px;
     letter-spacing: 0.015em;
   }

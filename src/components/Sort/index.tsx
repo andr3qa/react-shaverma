@@ -17,15 +17,15 @@ export const Sort = () => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span>популярности</span>
+        <button>популярности</button>
       </div>
-      <div className={s.sort__popup}>
+      {/* <div className={s.sort__popup}>
         <ul>
           <li className={s.active}>популярности</li>
           <li>цене</li>
           <li>алфавиту</li>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

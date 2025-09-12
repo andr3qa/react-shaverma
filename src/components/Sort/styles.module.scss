@@ -22,6 +22,7 @@
 
   &__label {
     display: flex;
+    flex-flow: row wrap;
     align-items: center;
 
     svg {
@@ -32,9 +33,11 @@
       margin-right: 8px;
     }
 
-    span {
+    button {
+      border: none;
       border-bottom: 1px dashed $orange;
       color: $orange;
+      background-color: transparent;
       cursor: pointer;
     }
   }

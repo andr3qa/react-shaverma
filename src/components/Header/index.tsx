@@ -8,7 +8,7 @@ export const Header = () => {
       <div className={s.container}>
         <Link to="/" className={s.header__logo}>
           <img width="50" height="50" src={logo} alt="Pizza logo" />
-          <div>
+          <div className={s.header__logoTxt}>
             <h1>React Shaverma</h1>
             <p>самая вкусная шаверма во вселенной</p>
           </div>
