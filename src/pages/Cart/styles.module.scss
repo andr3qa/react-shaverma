@@ -4,15 +4,29 @@
 .cart {
   padding: 50px;
 
+  @media (width <= 700px) {
+    padding: 25px;
+  }
+
   &__container {
     margin: 0 auto;
     width: 70%;
+
+    @media (width <= 1250px) {
+      width: 100%;
+    }
   }
 
   &__top {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @media (width <= 700px) {
+      flex-direction: column;
+      align-items: start;
+      gap: 20px;
+    }
   }
 
   .content__title {
@@ -80,6 +94,7 @@
 
   &__bottom {
     display: grid;
+    justify-items: start;
     grid-template-columns: 1fr 1fr;
     margin-top: 100px;
     gap: 20px;
@@ -88,8 +103,19 @@
       justify-self: end;
     }
 
-    li:nth-child(odd) {
-      justify-self: start;
+    @media (width <= 700px) {
+      justify-items: center;
+      grid-template-columns: 1fr;
+      gap: 10px;
+
+      li:nth-child(even) {
+        justify-self: center;
+      }
+
+      li:nth-child(3) {
+        order: 1;
+        margin-top: 50px;
+      }
     }
   }
 }

@@ -80,6 +80,8 @@ export const Cart = () => {
         </div>
         <div className={s.content__items}>
           <CartProduct />
+          <CartProduct />
+          <CartProduct />
         </div>
         <ul className={s.cart__bottom}>
           <li>

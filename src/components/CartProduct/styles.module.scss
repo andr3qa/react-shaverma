@@ -2,19 +2,43 @@
 @use 'sass:color';
 
 .cartProduct {
-  display: flex;
+  display: grid;
   align-items: center;
+  grid-template-columns: 1fr 1fr;
   margin-top: 30px;
   border-top: 1px solid $gray-line;
   padding-top: 30px;
   width: 100%;
+  gap: 30px;
+
+  @media (width <= 1000px) {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  &__desc {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__calc {
+    display: flex;
+    justify-content: space-between;
+
+    @media (width <= 1000px) {
+      justify-content: end;
+      gap: 30px;
+    }
+  }
 
   &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-left: 40px;
-    width: 40%;
+
+    @media (width <= 1000px) {
+      grid-column: 2 / 4;
+    }
 
     h3 {
       font-weight: 700;
@@ -33,7 +57,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 13%;
+    gap: 10px;
 
     b {
       font-size: 22px;
@@ -44,7 +68,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 33%;
 
     b {
       font-weight: 700;
