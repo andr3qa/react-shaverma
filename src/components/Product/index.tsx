@@ -1,28 +1,59 @@
 import { Button } from '@/components';
 import s from './styles.module.scss';
+import { useState } from 'react';
 
-export const Product = () => {
+type ProductProps = {
+  imageUrl: string;
+  title: string;
+  types: string[];
+  sizes: string[];
+  price: number[];
+};
+
+export const Product: React.FC<ProductProps> = ({
+  imageUrl,
+  title,
+  types,
+  sizes,
+  price,
+}) => {
+  const [activeType, setActiveType] = useState<number>(0);
+  const [activeSize, setActiveSize] = useState<number>(0);
+
   return (
     <div className={s.product}>
-      <img
-        className={s.product__image}
-        src="https://шавермабар.рф/wp-content/uploads/2020/11/%D0%B3%D1%80%D0%B8%D0%BB%D1%8C-%D1%82%D0%B5%D0%B9%D1%81%D1%82%D0%B8-scaled.jpg"
-        alt="Шаверма"
-      />
-      <h4 className={s.product__title}>Шаверма</h4>
+      <img className={s.product__image} src={imageUrl} />
+      <h4 className={s.product__title}>{title}</h4>
       <div className={s.product__selector}>
         <div className={s.product__types}>
-          <Button variant="productSelect_active">В лаваше</Button>
-          <Button variant="productSelect">На тарелке</Button>
+          {types.map((type, i) => (
+            <Button
+              onClick={() => setActiveType(i)}
+              key={type}
+              variant={
+                activeType === i ? 'productSelect_active' : 'productSelect'
+              }
+            >
+              {type}
+            </Button>
+          ))}
         </div>
         <div className={s.product__types}>
-          <Button variant="productSelect_active">L</Button>
-          <Button variant="productSelect">XL</Button>
-          <Button variant="productSelect">XXL</Button>
+          {sizes.map((size, i) => (
+            <Button
+              onClick={() => setActiveSize(i)}
+              key={size}
+              variant={
+                activeSize === i ? 'productSelect_active' : 'productSelect'
+              }
+            >
+              {size}
+            </Button>
+          ))}
         </div>
       </div>
       <div className={s.product__bottom}>
-        <div className={s.product__price}>от 395 ₽</div>
+        <div className={s.product__price}>{price[activeSize]} ₽</div>
         <Button>
           <span className={s.button__txt}>Добавить</span>
           <span className={s.product__count}>2</span>

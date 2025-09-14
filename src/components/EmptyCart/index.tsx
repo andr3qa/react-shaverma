@@ -2,7 +2,7 @@ import { LinkBack } from '@/components';
 import s from './styles.module.scss';
 import emptyCartImg from './../../assets/img/emptyCart.png';
 
-export const EmptyCart = () => {
+export const EmptyCart: React.FC = () => {
   return (
     <div className={s.emptyCart}>
       <img src={emptyCartImg} alt="" />

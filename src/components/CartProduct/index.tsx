@@ -1,7 +1,7 @@
 import { Button } from '@/components';
 import s from './styles.module.scss';
 
-export const CartProduct = () => {
+export const CartProduct: React.FC = () => {
   return (
     <div className={s.cartProduct}>
       <div className={s.cartProduct__desc}>

@@ -13,11 +13,13 @@ type BtnProps = {
     | 'productSelect'
     | 'productSelect_active'
     | undefined;
+  onClick?: () => void;
 };
 
-export const Button: React.FC<BtnProps> = ({ children, variant }) => {
+export const Button: React.FC<BtnProps> = ({ children, variant, onClick }) => {
   return (
     <button
+      onClick={onClick}
       className={clsx(s.btn, {
         [s.btn_circle]: variant === 'circle',
         [s.btn_circle + ' ' + s.btn_circle_delete]: variant === 'delete',

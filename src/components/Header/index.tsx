@@ -2,7 +2,7 @@ import s from './styles.module.scss';
 import logo from './../../assets/img/logo.png';
 import { Link } from 'react-router';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <div className={s.header}>
       <div className={s.container}>

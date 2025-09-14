@@ -1,6 +1,6 @@
 import s from './styles.module.scss';
 
-export const Sort = () => {
+export const Sort: React.FC = () => {
   return (
     <div className={s.sort}>
       <div className={s.sort__label}>

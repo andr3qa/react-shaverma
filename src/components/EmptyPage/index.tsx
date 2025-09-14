@@ -1,7 +1,7 @@
 import { LinkBack } from '@/components';
 import s from './styles.module.scss';
 
-export const EmptyPage = () => {
+export const EmptyPage: React.FC = () => {
   return (
     <div className={s.emptyPage}>
       <h2>

@@ -1,5 +1,5 @@
 import { EmptyPage } from '@/components';
 
-export const NotFound = () => {
+export const NotFound: React.FC = () => {
   return <EmptyPage />;
 };
