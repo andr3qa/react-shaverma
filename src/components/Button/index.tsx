@@ -12,6 +12,8 @@ type BtnProps = {
     | 'category_active'
     | 'productSelect'
     | 'productSelect_active'
+    | 'sortSelect'
+    | 'sortSelect_active'
     | undefined;
   onClick?: () => void;
 };
@@ -30,6 +32,9 @@ export const Button: React.FC<BtnProps> = ({ children, variant, onClick }) => {
         [s.btn_productSelect]: variant === 'productSelect',
         [s.btn_productSelect + ' ' + s.btn_productSelect_active]:
           variant === 'productSelect_active',
+        [s.btn_sortSelect]: variant === 'sortSelect',
+        [s.btn_sortSelect + ' ' + s.btn_sortSelect_active]:
+          variant === 'sortSelect_active',
       })}
     >
       {children}

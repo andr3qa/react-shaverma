@@ -138,4 +138,25 @@
       }
     }
   }
+
+  &_sortSelect {
+    display: block;
+    border: none;
+    border-radius: 0;
+    padding: 12px 20px;
+    width: 100%;
+    text-align: left;
+    color: #232323;
+    background-color: transparent;
+
+    &:hover {
+      background: rgb(254, 95, 30, 0.05);
+    }
+
+    &_active {
+      font-weight: 700;
+      color: $orange;
+      background: rgb(254, 95, 30, 0.05);
+    }
+  }
 }

@@ -1,14 +1,71 @@
+import { Button } from '@/components';
 import s from './styles.module.scss';
+import { useEffect, useRef, useState } from 'react';
+import { sortOptions } from '@/constants/sortOptions';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { setSort, type SortState } from '@/store/slices/sortSlice';
 
 export const Sort: React.FC = () => {
+  const sortList = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const name = useAppSelector((state) => state.sort.name);
+  const dispatch = useAppDispatch();
+
+  const sortHandler = (obj: SortState) => {
+    dispatch(setSort(obj));
+    setIsOpen(false);
+  };
+
+  useEffect(() => {
+    if (isOpen && sortList.current) {
+      sortList.current.focus();
+    }
+
+    const handleClickOutside = (event: MouseEvent): void => {
+      if (
+        sortList.current &&
+        !event.composedPath().includes(sortList.current)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener('click', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen]);
+
+  const renderSortList = () => (
+    <div className={s.sort__sortList}>
+      {sortOptions.map((option, i) => (
+        <Button
+          onClick={() => sortHandler(option)}
+          key={i}
+          variant={option.name === name ? 'sortSelect_active' : 'sortSelect'}
+        >
+          {option.name}
+        </Button>
+      ))}
+    </div>
+  );
+
   return (
-    <div className={s.sort}>
+    <div ref={sortList} className={s.sort}>
       <div className={s.sort__label}>
         <svg
           width="10"
           height="6"
           viewBox="0 0 10 6"
-          fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -17,15 +74,15 @@ export const Sort: React.FC = () => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <button>популярности</button>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Открыть список сортировки"
+          aria-expanded={isOpen}
+        >
+          {name}
+        </button>
       </div>
-      {/* <div className={s.sort__popup}>
-        <ul>
-          <li className={s.active}>популярности</li>
-          <li>цене</li>
-          <li>алфавиту</li>
-        </ul>
-      </div> */}
+      {isOpen && renderSortList()}
     </div>
   );
 };

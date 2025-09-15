@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { shavermaSlice } from './slices/shavermaSlice';
+import shavermaSlice from './slices/shavermaSlice';
+import sortSlice from './slices/sortSlice';
 
 export const store = configureStore({
   reducer: {
-    shaverma: shavermaSlice.reducer,
+    shaverma: shavermaSlice,
+    sort: sortSlice,
   },
 });
 

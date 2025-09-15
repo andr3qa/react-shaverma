@@ -2,11 +2,12 @@
 @use 'sass:color';
 
 .product {
+  width: 250px;
   text-align: center;
 
-  @media (width <= 1000px) {
-    width: 250px;
-  }
+  // @media (width <= 1000px) {
+  //   width: 250px;
+  // }
 
   &__image {
     border-radius: 30px;

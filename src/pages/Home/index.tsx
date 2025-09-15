@@ -1,4 +1,4 @@
-import { Categories, EmptyPage, Product, Sort } from '@/components';
+import { Categories, EmptyPage, Product, Skeleton, Sort } from '@/components';
 import s from './styles.module.scss';
 import { useEffect } from 'react';
 import { fetchShaverma } from '@/store/slices/shavermaSlice';
@@ -24,11 +24,9 @@ export const Home: React.FC = () => {
       </div>
       <h2 className={s.content__title}>Все шавермы</h2>
       <div className={s.content__items}>
-        {loading ? (
-          <h1>Идет загрузка...</h1>
-        ) : (
-          items.map((obj) => <Product key={obj.id} {...obj} />)
-        )}
+        {loading
+          ? [...Array(12)].map((_, index) => <Skeleton key={index} />)
+          : items.map((obj) => <Product key={obj.id} {...obj} />)}
       </div>
     </div>
   );
