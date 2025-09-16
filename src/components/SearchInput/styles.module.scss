@@ -17,8 +17,8 @@
 
   &__clearBtn {
     position: absolute;
-    right: 6px;
-    top: 7px;
+    right: 9px;
+    top: 6px;
     border: none;
     border-radius: 50%;
     width: 20px;
@@ -26,7 +26,6 @@
     font-size: 20px;
     color: #d3d3d3;
     background-color: transparent;
-    transform: rotate(45deg);
     cursor: pointer;
   }
 }

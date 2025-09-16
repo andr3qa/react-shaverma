@@ -9,6 +9,7 @@ export const Home: React.FC = () => {
   const { items, loading, error } = useAppSelector((state) => state.shaverma);
   const activeCategory = useAppSelector((state) => state.categories.value);
   const { sortProperty, order } = useAppSelector((state) => state.sort);
+  const searchValue = useAppSelector((state) => state.search.value);
   const dispatch = useAppDispatch();
 
   const queryString = qs.stringify(
@@ -16,6 +17,7 @@ export const Home: React.FC = () => {
       sortBy: sortProperty,
       order,
       category: activeCategory == 0 ? undefined : activeCategory,
+      title: searchValue == '' ? undefined : searchValue,
     },
     {
       addQueryPrefix: true,
