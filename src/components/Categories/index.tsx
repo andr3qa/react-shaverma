@@ -1,15 +1,24 @@
 import { Button } from '@/components';
 import s from './styles.module.scss';
+import { categoriesOptions } from '../../constants/categoriesOptions';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { setCategories } from '@/store/slices/categoriesSlice';
 
 export const Categories: React.FC = () => {
+  const activeCategory = useAppSelector((state) => state.categories.value);
+  const dispatch = useAppDispatch();
+
   return (
     <div className={s.categories}>
-      <Button variant="category_active">Все</Button>
-      <Button variant="category">Мясные</Button>
-      <Button variant="category">Вегетарианская</Button>
-      <Button variant="category">Гриль</Button>
-      <Button variant="category">Острые</Button>
-      <Button variant="category">Морские</Button>
+      {categoriesOptions.map((option, i) => (
+        <Button
+          key={i}
+          variant={option === activeCategory ? 'category_active' : 'category'}
+          onClick={() => dispatch(setCategories(option))}
+        >
+          {option}
+        </Button>
+      ))}
     </div>
   );
 };
