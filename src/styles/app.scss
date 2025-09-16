@@ -20,8 +20,8 @@ body {
   min-width: 350px;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  color: $black;
-  background-color: $background;
+  color: $txtColor;
+  background-color: $backgroundColor;
 
   @media (width <= 700px) {
     padding: 15px;

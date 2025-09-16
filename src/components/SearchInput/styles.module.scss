@@ -1,0 +1,32 @@
+@use './../../styles/variables' as *;
+@use 'sass:color';
+
+.searchInput {
+  position: relative;
+
+  &__input {
+    border: 1px solid #d3d3d3;
+    border-radius: 10px;
+    padding: 10px 30px 10px 15px;
+    width: 300px;
+
+    &::placeholder {
+      color: #d3d3d3;
+    }
+  }
+
+  &__clearBtn {
+    position: absolute;
+    right: 6px;
+    top: 7px;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    color: #d3d3d3;
+    background-color: transparent;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+}

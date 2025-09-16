@@ -8,3 +8,4 @@ export { EmptyPage as EmptyPage } from './EmptyPage';
 export { EmptyCart as EmptyCart } from './EmptyCart';
 export { LinkBack as LinkBack } from './LinkBack';
 export { Skeleton as Skeleton } from './Skeleton';
+export { SearchInput as SearchInput } from './SearchInput';

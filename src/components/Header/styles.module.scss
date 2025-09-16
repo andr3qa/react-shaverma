@@ -2,7 +2,7 @@
 @use 'sass:color';
 
 .header {
-  border-bottom: 1px solid $gray-line;
+  border-bottom: 1px solid $horizontalLineColor;
   padding: 40px 0;
 
   .container {
@@ -12,7 +12,7 @@
     margin: 0 auto;
     width: $container-width;
 
-    @media (width <= 700px) {
+    @media (width <= 1100px) {
       flex-direction: column;
       gap: 30px;
     }
@@ -21,7 +21,7 @@
   &__logo {
     display: flex;
 
-    @media (width <= 700px) {
+    @media (width <= 1100px) {
       flex-direction: column;
       align-items: center;
     }
@@ -32,7 +32,7 @@
   }
 
   &__logoTxt {
-    @media (width <= 700px) {
+    @media (width <= 1100px) {
       text-align: center;
     }
 
@@ -60,7 +60,7 @@
   width: 150px;
   text-align: center;
   color: #fff;
-  background-color: $orange;
+  background-color: $mainColor;
   transition:
     background-color $duration ease-in-out,
     border-color $duration ease-in-out;

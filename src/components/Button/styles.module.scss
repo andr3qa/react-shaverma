@@ -12,39 +12,39 @@
   font-size: 14px;
   text-align: center;
   color: #fff;
-  background-color: $orange;
+  background-color: $mainColor;
   transition: all $duration ease-in-out;
   cursor: pointer;
 
   &:hover {
-    background-color: color.adjust($orange, $lightness: -5%);
+    background-color: color.adjust($mainColor, $lightness: -5%);
   }
 
   &:active {
-    border-color: color.adjust($orange, $lightness: -15%);
+    border-color: color.adjust($mainColor, $lightness: -15%);
     transform: translateY(1px);
   }
 
   &_circle {
-    border-color: $orange;
+    border-color: $mainColor;
     border-radius: 50%;
     padding: 0;
     width: 30px;
     height: 30px;
     font-weight: 800;
     font-size: 18px;
-    color: $orange;
+    color: $mainColor;
     background-color: transparent;
 
     &:hover {
       color: #fff;
-      background-color: $orange;
+      background-color: $mainColor;
     }
 
     &:active {
-      border-color: color.adjust($orange, $lightness: -10%);
+      border-color: color.adjust($mainColor, $lightness: -10%);
       color: #fff;
-      background-color: color.adjust($orange, $lightness: -10%);
+      background-color: color.adjust($mainColor, $lightness: -10%);
       transform: translateY(1px);
     }
 
@@ -155,7 +155,7 @@
 
     &_active {
       font-weight: 700;
-      color: $orange;
+      color: $mainColor;
       background: rgb(254, 95, 30, 0.05);
     }
   }

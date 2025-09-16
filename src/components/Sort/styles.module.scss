@@ -35,8 +35,8 @@
 
     button {
       border: none;
-      border-bottom: 1px dashed $orange;
-      color: $orange;
+      border-bottom: 1px dashed $mainColor;
+      color: $mainColor;
       background-color: transparent;
       cursor: pointer;
     }
@@ -67,7 +67,7 @@
 
         &.active {
           font-weight: 700;
-          color: $orange;
+          color: $mainColor;
         }
       }
     }

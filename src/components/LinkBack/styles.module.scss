@@ -30,25 +30,25 @@
   }
 
   &:hover {
-    border-color: $orange;
-    color: $orange;
+    border-color: $mainColor;
+    color: $mainColor;
     background-color: transparent;
 
     svg {
       path {
-        stroke: $orange;
+        stroke: $mainColor;
       }
     }
   }
 
   &:active {
-    border-color: color.adjust($orange, $lightness: -10%);
-    color: color.adjust($orange, $lightness: -10%);
+    border-color: color.adjust($mainColor, $lightness: -10%);
+    color: color.adjust($mainColor, $lightness: -10%);
     transform: translateY(1px);
 
     svg {
       path {
-        stroke: color.adjust($orange, $lightness: -10%);
+        stroke: color.adjust($mainColor, $lightness: -10%);
       }
     }
   }

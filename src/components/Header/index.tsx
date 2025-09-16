@@ -1,6 +1,7 @@
 import s from './styles.module.scss';
 import logo from './../../assets/img/logo.png';
 import { Link } from 'react-router';
+import { SearchInput } from '@/components';
 
 export const Header: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ export const Header: React.FC = () => {
             <p>самая вкусная шаверма во вселенной</p>
           </div>
         </Link>
+        <SearchInput />
         <Link to="/cart" className={s.cartBtn}>
           <span>520 ₽</span>
           <div className={s.cartBtn__delimiter}></div>
