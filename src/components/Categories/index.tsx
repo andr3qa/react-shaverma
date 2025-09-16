@@ -13,8 +13,8 @@ export const Categories: React.FC = () => {
       {categoriesOptions.map((option, i) => (
         <Button
           key={i}
-          variant={option === activeCategory ? 'category_active' : 'category'}
-          onClick={() => dispatch(setCategories(option))}
+          variant={i === activeCategory ? 'category_active' : 'category'}
+          onClick={() => dispatch(setCategories(i))}
         >
           {option}
         </Button>

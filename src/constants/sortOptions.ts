@@ -5,6 +5,6 @@ export const sortOptions: SortState[] = [
   { name: 'непопулярные', sortProperty: 'rating', order: 'asc' },
   { name: 'дорогие', sortProperty: 'price', order: 'desc' },
   { name: 'дешёвые', sortProperty: 'price', order: 'asc' },
-  { name: 'алфавиту А - Я', sortProperty: 'title', order: 'desc' },
-  { name: 'алфавиту Я - А', sortProperty: 'title', order: 'asc' },
+  { name: 'алфавиту А - Я', sortProperty: 'title', order: 'asc' },
+  { name: 'алфавиту Я - А', sortProperty: 'title', order: 'desc' },
 ];

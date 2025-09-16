@@ -29,10 +29,10 @@ const initialState: ShavermaState = {
 
 export const fetchShaverma = createAsyncThunk(
   'shaverma/fetchShaverma',
-  async (_, { rejectWithValue }) => {
+  async (queryString: string, { rejectWithValue }) => {
     try {
       const { data } = await axios.get<ShavermaItem[]>(
-        'https://687fc39af1dcae717b6027be.mockapi.io/shaverma'
+        `https://687fc39af1dcae717b6027be.mockapi.io/shaverma${queryString}`
       );
       return data;
     } catch (error) {
@@ -73,6 +73,6 @@ export const shavermaSlice = createSlice({
   },
 });
 
-export const {} = shavermaSlice.actions;
+// export const {} = shavermaSlice.actions;
 
 export default shavermaSlice.reducer;
