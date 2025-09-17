@@ -3,6 +3,7 @@ import shavermaSlice from './slices/shavermaSlice';
 import sortSlice from './slices/sortSlice';
 import categoriesSlice from './slices/categoriesSlice';
 import searchSlice from './slices/searchSlice';
+import cartSlice from './slices/cartSlice';
 
 export const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const store = configureStore({
     sort: sortSlice,
     categories: categoriesSlice,
     search: searchSlice,
+    cart: cartSlice,
   },
 });
 

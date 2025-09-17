@@ -1,7 +1,23 @@
-import { Button, CartProduct, LinkBack } from '@/components';
+import { Button, CartProduct, EmptyCart, LinkBack } from '@/components';
 import s from './styles.module.scss';
+import { useAppDispatch, useAppSelector } from '@/hooks';
+import { emptyCart } from '@/store/slices/cartSlice';
 
 export const Cart: React.FC = () => {
+  const items = useAppSelector((state) => state.cart.items);
+  const totalPrice = useAppSelector((state) => state.cart.totalPrice);
+  const totalCount = useAppSelector((state) => state.cart.totalCount);
+
+  const dispatch = useAppDispatch();
+
+  if (items.length === 0) return <EmptyCart />;
+
+  const handleEmptyCart = () => {
+    if (confirm('Вы действительно хотите очистить корзину?')) {
+      dispatch(emptyCart());
+    }
+  };
+
   return (
     <div className={s.cart}>
       <div className={s.cart__container}>
@@ -38,7 +54,7 @@ export const Cart: React.FC = () => {
             </svg>
             Корзина
           </h2>
-          <button className={s.cart__clear}>
+          <button onClick={handleEmptyCart} className={s.cart__clear}>
             <svg
               width="20"
               height="20"
@@ -79,19 +95,19 @@ export const Cart: React.FC = () => {
           </button>
         </div>
         <div className={s.content__items}>
-          <CartProduct />
-          <CartProduct />
-          <CartProduct />
+          {items.map((item, i) => (
+            <CartProduct key={i} {...item} />
+          ))}
         </div>
         <ul className={s.cart__bottom}>
           <li>
             <span>
-              Всего пицц: <b>3 шт.</b>
+              Всего пицц: <b>{totalCount} шт.</b>
             </span>
           </li>
           <li>
             <span>
-              Сумма заказа: <b>900 ₽</b>
+              Сумма заказа: <b>{totalPrice} ₽</b>
             </span>
           </li>
           <li>

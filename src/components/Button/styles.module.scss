@@ -55,7 +55,6 @@
       span {
         display: block;
         color: #d3d3d3;
-        transform: rotate(45deg);
         transition: all $duration ease-in-out;
       }
 
@@ -70,6 +69,22 @@
 
       &:active {
         border-color: color.adjust(#e32636, $lightness: -10%);
+      }
+    }
+
+    &:disabled {
+      border-color: #d3d3d3;
+      color: #d3d3d3;
+      cursor: auto;
+
+      &:hover {
+        border-color: #d3d3d3;
+        color: #d3d3d3;
+        background-color: transparent;
+      }
+
+      &:active {
+        transform: translateY(0);
       }
     }
   }

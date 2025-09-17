@@ -16,11 +16,18 @@ type BtnProps = {
     | 'sortSelect_active'
     | undefined;
   onClick?: () => void;
+  disabled?: boolean;
 };
 
-export const Button: React.FC<BtnProps> = ({ children, variant, onClick }) => {
+export const Button: React.FC<BtnProps> = ({
+  children,
+  variant,
+  onClick,
+  disabled,
+}) => {
   return (
     <button
+      disabled={disabled}
       onClick={onClick}
       className={clsx(s.btn, {
         [s.btn_circle]: variant === 'circle',

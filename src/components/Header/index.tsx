@@ -2,8 +2,12 @@ import s from './styles.module.scss';
 import logo from './../../assets/img/logo.png';
 import { Link } from 'react-router';
 import { SearchInput } from '@/components';
+import { useAppSelector } from '@/hooks';
 
 export const Header: React.FC = () => {
+  const totalPrice = useAppSelector((state) => state.cart.totalPrice);
+  const totalCount = useAppSelector((state) => state.cart.totalCount);
+
   return (
     <div className={s.header}>
       <div className={s.container}>
@@ -16,7 +20,7 @@ export const Header: React.FC = () => {
         </Link>
         <SearchInput />
         <Link to="/cart" className={s.cartBtn}>
-          <span>520 ₽</span>
+          <span>{totalPrice} ₽</span>
           <div className={s.cartBtn__delimiter}></div>
           <svg
             width="18"
@@ -47,7 +51,7 @@ export const Header: React.FC = () => {
               strokeLinejoin="round"
             />
           </svg>
-          <span>3</span>
+          <span>{totalCount}</span>
         </Link>
       </div>
     </div>
