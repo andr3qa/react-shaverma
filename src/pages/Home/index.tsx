@@ -1,15 +1,21 @@
 import { Categories, EmptyPage, Product, Skeleton, Sort } from '@/components';
 import s from './styles.module.scss';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { fetchShaverma } from '@/store/slices/shavermaSlice';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import qs from 'qs';
+import { useNavigate } from 'react-router';
+import { sortOptions } from '@/constants/sortOptions';
+import { setCategories } from '@/store/slices/categoriesSlice';
+import { setSort } from '@/store/slices/sortSlice';
 
 export const Home: React.FC = () => {
   const { items, loading, error } = useAppSelector((state) => state.shaverma);
   const activeCategory = useAppSelector((state) => state.categories.value);
   const { sortProperty, order } = useAppSelector((state) => state.sort);
   const searchValue = useAppSelector((state) => state.search.value);
+  const navigate = useNavigate();
+  const isMounted = useRef(false);
   const dispatch = useAppDispatch();
 
   const queryString = qs.stringify(
@@ -25,8 +31,27 @@ export const Home: React.FC = () => {
   );
 
   useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1));
+      const sortObj =
+        sortOptions.find((obj) => obj.sortProperty === params.sortBy) ||
+        sortOptions[0];
+      dispatch(setCategories(Number(params.category) || 0));
+      dispatch(setSort(sortObj));
+    }
+  }, [dispatch]);
+
+  useEffect(() => {
     dispatch(fetchShaverma(queryString));
   }, [dispatch, queryString]);
+
+  useEffect(() => {
+    if (isMounted.current) {
+      navigate(queryString);
+    }
+
+    isMounted.current = true;
+  }, [navigate, queryString]);
 
   if (error) {
     return <EmptyPage />;
