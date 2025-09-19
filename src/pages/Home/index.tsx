@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router';
 import { sortOptions } from '@/constants/sortOptions';
 import { setCategories } from '@/store/slices/categoriesSlice';
 import { setSort } from '@/store/slices/sortSlice';
+import { useDebouncedCallback } from 'use-debounce';
 
 export const Home: React.FC = () => {
   const { items, loading, error } = useAppSelector((state) => state.shaverma);
@@ -30,6 +31,7 @@ export const Home: React.FC = () => {
     }
   );
 
+  // Синхронизация состояния Redux с URL при монтировании
   useEffect(() => {
     if (window.location.search) {
       const params = qs.parse(window.location.search.substring(1));
@@ -41,17 +43,30 @@ export const Home: React.FC = () => {
     }
   }, [dispatch]);
 
-  useEffect(() => {
+  // Загрузка данных с API
+  const fetchPizzas = useDebouncedCallback(() => {
     dispatch(fetchShaverma(queryString));
-  }, [dispatch, queryString]);
+  }, 250);
 
   useEffect(() => {
+    fetchPizzas();
+    window.scrollTo(0, 0);
+    return () => fetchPizzas.cancel();
+  }, [activeCategory, sortProperty, order, searchValue, fetchPizzas]);
+
+  // Обновление URL при изменении параметров
+  const updateUrl = useDebouncedCallback(() => {
     if (isMounted.current) {
       navigate(queryString);
     }
 
     isMounted.current = true;
-  }, [navigate, queryString]);
+  }, 250);
+
+  useEffect(() => {
+    updateUrl();
+    return () => updateUrl.cancel();
+  }, [activeCategory, sortProperty, order, searchValue, navigate, updateUrl]);
 
   if (error) {
     return <EmptyPage />;
