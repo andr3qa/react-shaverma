@@ -1,5 +1,7 @@
 import { EmptyPage } from '@/components';
 
-export const NotFound: React.FC = () => {
+const NotFound: React.FC = () => {
   return <EmptyPage />;
 };
+
+export default NotFound;

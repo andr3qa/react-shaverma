@@ -3,7 +3,7 @@ import s from './styles.module.scss';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { emptyCart } from '@/store/slices/cartSlice';
 
-export const Cart: React.FC = () => {
+const Cart: React.FC = () => {
   const items = useAppSelector((state) => state.cart.items);
   const totalPrice = useAppSelector((state) => state.cart.totalPrice);
   const totalCount = useAppSelector((state) => state.cart.totalCount);
@@ -123,3 +123,5 @@ export const Cart: React.FC = () => {
     </div>
   );
 };
+
+export default Cart;
