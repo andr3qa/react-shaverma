@@ -1,5 +1,5 @@
 import { Header } from '@/components';
-import { Home } from './pages';
+import { Home } from './pages/Home';
 import './styles/app.scss';
 import { Route, Routes } from 'react-router';
 import { lazy, Suspense } from 'react';

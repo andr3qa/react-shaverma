@@ -9,3 +9,4 @@ export { EmptyCart as EmptyCart } from './EmptyCart';
 export { LinkBack as LinkBack } from './LinkBack';
 export { Skeleton as Skeleton } from './Skeleton';
 export { SearchInput as SearchInput } from './SearchInput';
+export { ProductPopup as ProductPopup } from './ProductPopup';

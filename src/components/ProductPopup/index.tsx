@@ -4,41 +4,23 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import { setCart } from '@/store/slices/cartSlice';
 
-type ProductProps = {
-  id: number;
-  imageUrl: string;
-  title: string;
-  types: string[];
-  sizes: string[];
-  price: number[];
-};
-
-export const Product: React.FC<ProductProps> = ({
-  id,
-  imageUrl,
-  title,
-  types,
-  sizes,
-  price,
-}) => {
+export const ProductPopup: React.FC = () => {
   const [activeType, setActiveType] = useState<number>(0);
   const [activeSize, setActiveSize] = useState<number>(0);
 
-  const cartItems = useAppSelector((state) => state.cart.items);
-  const cartItemId = cartItems.filter((item) => item.id === id);
-  const cartItemCount = cartItemId.reduce((sum, item) => sum + item.count, 0);
+  const popInfo = useAppSelector((state) => state.productPopup);
 
   const dispatch = useAppDispatch();
 
   const handleAddToCart = () => {
     dispatch(
       setCart({
-        id,
-        imageUrl,
-        title,
-        type: types[activeType],
-        size: sizes[activeSize],
-        price: price[activeSize],
+        id: popInfo.id,
+        imageUrl: popInfo.imageUrl,
+        title: popInfo.title,
+        type: popInfo[activeType],
+        size: popInfo[activeSize],
+        price: popInfo[activeSize],
         count: 1,
       })
     );
@@ -80,9 +62,6 @@ export const Product: React.FC<ProductProps> = ({
         <div className={s.product__price}>{price[activeSize]} ₽</div>
         <Button onClick={handleAddToCart}>
           <span className={s.button__txt}>Добавить</span>
-          {cartItemCount > 0 && (
-            <span className={s.product__count}>{cartItemCount}</span>
-          )}
         </Button>
       </div>
     </div>

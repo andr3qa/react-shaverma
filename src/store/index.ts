@@ -6,6 +6,7 @@ import searchSlice from './slices/searchSlice';
 import cartSlice from './slices/cartSlice';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
+import productPopupSlice from './slices/productPopupSlice';
 
 const persistConfig = {
   key: 'cart',
@@ -21,6 +22,7 @@ export const store = configureStore({
     categories: categoriesSlice,
     search: searchSlice,
     cart: persistedCart,
+    productPopup: productPopupSlice,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

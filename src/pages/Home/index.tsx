@@ -1,4 +1,11 @@
-import { Categories, EmptyPage, Product, Skeleton, Sort } from '@/components';
+import {
+  Categories,
+  EmptyPage,
+  Product,
+  ProductPopup,
+  Skeleton,
+  Sort,
+} from '@/components';
 import s from './styles.module.scss';
 import { useEffect, useRef } from 'react';
 import { fetchShaverma } from '@/store/slices/shavermaSlice';
@@ -84,6 +91,8 @@ export const Home: React.FC = () => {
           ? [...Array(12)].map((_, index) => <Skeleton key={index} />)
           : items.map((obj) => <Product key={obj.id} {...obj} />)}
       </div>
+      <ProductPopup />
+      <div className="asdasd"></div>
     </div>
   );
 };
