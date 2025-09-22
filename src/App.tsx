@@ -1,5 +1,5 @@
 import { Header } from '@/components';
-import { Home } from './pages';
+import { Home } from './pages/Home';
 import './styles/app.scss';
 import { Route, Routes } from 'react-router';
 import { lazy, Suspense } from 'react';
@@ -14,7 +14,7 @@ function App() {
       <div className="content">
         <Suspense fallback={<div>Загрузка...</div>}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/*" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

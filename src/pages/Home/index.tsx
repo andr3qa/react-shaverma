@@ -1,10 +1,17 @@
-import { Categories, EmptyPage, Product, Skeleton, Sort } from '@/components';
+import {
+  Categories,
+  EmptyPage,
+  Product,
+  ProductPopup,
+  Skeleton,
+  Sort,
+} from '@/components';
 import s from './styles.module.scss';
 import { useEffect, useRef } from 'react';
 import { fetchShaverma } from '@/store/slices/shavermaSlice';
 import { useAppDispatch, useAppSelector } from '@/hooks';
 import qs from 'qs';
-import { useNavigate } from 'react-router';
+import { Route, Routes, useLocation, useNavigate } from 'react-router';
 import { sortOptions } from '@/constants/sortOptions';
 import { setCategories } from '@/store/slices/categoriesSlice';
 import { setSort } from '@/store/slices/sortSlice';
@@ -18,6 +25,7 @@ export const Home: React.FC = () => {
   const navigate = useNavigate();
   const isMounted = useRef(false);
   const dispatch = useAppDispatch();
+  const location = useLocation();
 
   const queryString = qs.stringify(
     {
@@ -56,7 +64,7 @@ export const Home: React.FC = () => {
 
   // Обновление URL при изменении параметров
   const updateUrl = useDebouncedCallback(() => {
-    if (isMounted.current) {
+    if (isMounted.current && !location.pathname.startsWith('/shaverma/')) {
       navigate(queryString);
     }
 
@@ -84,6 +92,9 @@ export const Home: React.FC = () => {
           ? [...Array(12)].map((_, index) => <Skeleton key={index} />)
           : items.map((obj) => <Product key={obj.id} {...obj} />)}
       </div>
+      <Routes>
+        <Route path="shaverma/:id" element={<ProductPopup />} />
+      </Routes>
     </div>
   );
 };

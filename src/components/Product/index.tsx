@@ -1,11 +1,13 @@
 import { Button } from '@/components';
 import s from './styles.module.scss';
 import { useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+import { useAppDispatch } from '@/hooks';
 import { setCart } from '@/store/slices/cartSlice';
+import { Link } from 'react-router';
+import { useCartItemCount } from '@/hooks/functions/cartItemCount';
 
 type ProductProps = {
-  id: number;
+  id: string;
   imageUrl: string;
   title: string;
   types: string[];
@@ -24,9 +26,7 @@ export const Product: React.FC<ProductProps> = ({
   const [activeType, setActiveType] = useState<number>(0);
   const [activeSize, setActiveSize] = useState<number>(0);
 
-  const cartItems = useAppSelector((state) => state.cart.items);
-  const cartItemId = cartItems.filter((item) => item.id === id);
-  const cartItemCount = cartItemId.reduce((sum, item) => sum + item.count, 0);
+  const cartItemCount = useCartItemCount(id);
 
   const dispatch = useAppDispatch();
 
@@ -46,7 +46,9 @@ export const Product: React.FC<ProductProps> = ({
 
   return (
     <div className={s.product}>
-      <img className={s.product__image} src={imageUrl} />
+      <Link to={`/shaverma/${id}`}>
+        <img className={s.product__image} src={imageUrl} alt="Шаверма" />
+      </Link>
       <h4 className={s.product__title}>{title}</h4>
       <div className={s.product__selector}>
         <div className={s.product__types}>

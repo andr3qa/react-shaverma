@@ -5,13 +5,15 @@
   width: 250px;
   text-align: center;
 
-  // @media (width <= 1000px) {
-  //   width: 250px;
-  // }
-
   &__image {
+    position: relative;
     border-radius: 30px;
     width: 100%;
+    transition: all $duration ease-in-out;
+
+    &:hover {
+      padding: 1px;
+    }
   }
 
   &__title {

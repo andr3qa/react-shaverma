@@ -3,7 +3,7 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export interface ShavermaItem {
-  id: number;
+  id: string;
   imageUrl: string;
   title: string;
   description: string;
