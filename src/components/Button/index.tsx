@@ -3,6 +3,7 @@ import s from './styles.module.scss';
 import { type ReactNode } from 'react';
 
 type BtnProps = {
+  className?: string;
   children: ReactNode;
   variant?:
     | 'circle'
@@ -20,6 +21,7 @@ type BtnProps = {
 };
 
 export const Button: React.FC<BtnProps> = ({
+  className,
   children,
   variant,
   onClick,
@@ -29,7 +31,7 @@ export const Button: React.FC<BtnProps> = ({
     <button
       disabled={disabled}
       onClick={onClick}
-      className={clsx(s.btn, {
+      className={clsx(s.btn, className, {
         [s.btn_circle]: variant === 'circle',
         [s.btn_circle + ' ' + s.btn_circle_delete]: variant === 'delete',
         [s.btn_cart]: variant === 'cart',

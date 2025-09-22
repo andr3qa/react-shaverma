@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
 export interface CartItem {
-  id: number;
+  id: string;
   imageUrl: string;
   title: string;
   type: string;
@@ -12,7 +12,7 @@ export interface CartItem {
 }
 
 export type CartItemCount = {
-  id: number;
+  id: string;
   type: string;
   size: string;
 };
