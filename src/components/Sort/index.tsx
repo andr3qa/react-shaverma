@@ -82,7 +82,23 @@ export const Sort: React.FC = () => {
           {name}
         </button>
       </div>
-      {isOpen && renderSortList()}
+      <div
+        className={
+          isOpen
+            ? `${s.sort__sortList} ${s.sort__sortList_active}`
+            : s.sort__sortList
+        }
+      >
+        {sortOptions.map((option, i) => (
+          <Button
+            onClick={() => sortHandler(option)}
+            key={i}
+            variant={option.name === name ? 'sortSelect_active' : 'sortSelect'}
+          >
+            {option.name}
+          </Button>
+        ))}
+      </div>
     </div>
   );
 };
